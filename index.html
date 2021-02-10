@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>La meteo</title>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        width: 70%;
+        margin: auto;
+      }
+      #boite {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .ville {
+        background: #dbdbdb;
+        margin: 12px 12px 12px 12px;
+        padding-top: 1px;
+        padding-left: 12px;
+        flex: auto;
+      }
+      #bas {
+        background: #f2f2f2;
+      }
+      #haut {
+        background: black;
+        color: white;
+        text-align: center;
+      }
+    </style>
+    <script>
+      function showCity() {
+        let nomVilleSelectionnee = document.getElementById("select-ville")
+          .value;
+        let cities = document.getElementsByClassName("ville");
+        for (i = 0; i < document.querySelectorAll(".ville").length; i++) {
+          if (cities[i].id == nomVilleSelectionnee) {
+            // garder l'element visible ->
+            document.getElementById(cities[i].id).style.display = "";
+          } else {
+            // cacher l'element ->
+            document.getElementById(cities[i].id).style.display = "none";
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="premier">
+      <div id="haut">
+        <h1>Méteo de quelques villes</h1>
+      </div>
+
+      <label for="select-ville">Choisir une ville : </label>
+
+      <select onchange="showCity()" name="villes" id="select-ville">
+        <option value="">--Choisir une ville--</option>
+        <option value="ste">Saint-Etienne</option>
+        <option value="lyon">Lyon</option>
+        <option value="paris">Paris</option>
+      </select>
+      <div id="boite">
+        <div class="ville" id="ste">
+          <h2>Saint Etienne</h2>
+          <p>2°C, nuageux</p>
+          <img src="noun_cloudy.png" alt="nuageux" width="100" />
+        </div>
+        <div class="ville" id="lyon">
+          <h2>Lyon</h2>
+          <p>4°C, Nuageux dans l'ensemble</p>
+          <img
+            src="noun_cloudy_sun.png"
+            alt="nuageux avec soleil"
+            width="100"
+          />
+        </div>
+        <div class="ville" id="paris">
+          <h2>Paris</h2>
+          <p>0°C, Nuageux</p>
+          <img src="noun_cloudy.png" alt="nuageux" width="100" />
+        </div>
+      </div>
+      <footer id="bas">
+        <p>
+          Benoit Millet p1610932 <br />
+          Ref image :
+          <a
+            href="https://thenounproject.com/search/collection/?q=weather"
+            target="blank"
+            >The noun project</a
+          >
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
